@@ -1,6 +1,6 @@
-### 3. **eks-lb-edns-controller** (AWS Load Balancer Controller + ExternalDNS)
+###  **eks-lb-edns-controller** (AWS Load Balancer Controller + ExternalDNS)
 
-```markdown
+
 # AWS Load Balancer Controller + ExternalDNS on EKS
 
 Настройка **AWS Load Balancer Controller** и **ExternalDNS** для автоматического управления трафиком и DNS записями в AWS.
