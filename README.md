@@ -1,6 +1,3 @@
-
----
-
 ### 3. **eks-lb-edns-controller** (AWS Load Balancer Controller + ExternalDNS)
 
 ```markdown
@@ -23,21 +20,3 @@
 - Кластер EKS
 - Доменная зона в Route53
 - IAM OIDC провайдер для кластера
-
-## 🚀 Установка
-
-### 1. Настройка IAM для AWS Load Balancer Controller
-
-```bash
-# Создание IAM policy
-curl -o iam-policy.json https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/main/docs/install/iam_policy.json
-aws iam create-policy --policy-name AWSLoadBalancerControllerIAMPolicy --policy-document file://iam-policy.json
-
-# Создание service account с IRSA
-eksctl create iamserviceaccount \
-  --cluster=<cluster-name> \
-  --namespace=kube-system \
-  --name=aws-load-balancer-controller \
-  --attach-policy-arn=arn:aws:iam::<account-id>:policy/AWSLoadBalancerControllerIAMPolicy \
-  --override-existing-serviceaccounts \
-  --approve
