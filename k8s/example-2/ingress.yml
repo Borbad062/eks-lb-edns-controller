@@ -1,0 +1,23 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: main-ingress
+  namespace: example-2
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: instance
+    alb.ingress.kubernetes.io/tags: Environment=Development,Team=DevOps,Project=app
+    external-dns.alpha.kubernetes.io/hostname: app-2.zubaidov.com 
+spec:
+  ingressClassName: alb
+  rules:
+   - http:
+      paths:
+        - pathType: Prefix
+          path: /
+          backend:
+            service:
+              name: kuber-service-2
+              port: 
+                number: 80

@@ -1,0 +1,14 @@
+domainFilters: ["zubaidov.com"] 
+registry: txt
+txtOwnerId: my-demo-identifier
+provider: aws
+policy: upsert-only
+sources: ["service", "ingress"]
+serviceAccount:
+  create: true
+  name: external-dns
+  annotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::976792585781:role/demo-eks-cluster-external-dns-role
+aws:
+  region: eu-north-1
+  zoneType: public
